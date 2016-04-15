@@ -28,9 +28,9 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', function(req, res){
-  res.render('index', {title: "Home", template: "home.ejs"});
-});
+var indexCtrl = require('./controller/indexCtrl.js');
+
+app.get('/', indexCtrl.getIndex);
 
 app.get('/annonce', function(req, res){
   res.render('index', {title: "Annonce", template: "annonce.ejs"});
