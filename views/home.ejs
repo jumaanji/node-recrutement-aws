@@ -1,7 +1,7 @@
 <% for(var i=0; i < jobs.length; i++) { %>
 <div class="annonce">
 	<p class="type-poste"><%= jobs[i].type_poste %></p>
-	<a href="/annonce" class="poste"><%= jobs[i].titre %></a>
+	<a href="/annonce/<%= jobs[i].id %>" class="poste"><%= jobs[i].titre %></a>
 	<p class="coord"><span class="societe"><%= jobs[i].societe %></span>, Paris</p>
 	<p class="skills"><span class="skill">Compétence 1</span><span class="skill">Compétence 2</span><span class="skill">Compétence 3</span></p>
 </div>

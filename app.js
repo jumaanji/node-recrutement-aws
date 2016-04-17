@@ -30,9 +30,7 @@ var indexCtrl = require('./controller/indexCtrl.js');
 
 app.get('/', indexCtrl.getIndex);
 
-app.get('/annonce', function(req, res){
-  res.render('index', {title: "Annonce", template: "annonce.ejs"});
-});
+app.get('/annonce/:id', indexCtrl.getAnnonce);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

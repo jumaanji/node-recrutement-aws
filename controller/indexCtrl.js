@@ -35,10 +35,22 @@ function init() {
 }
 
 exports.getIndex = function (req, res) {
-    // clean previous session result
-    //connexion à bdd sql
     init();
 
     var data = JSON.parse(jsonfile.readFileSync(file));
     return res.render('index', {title: "Home", template: "home.ejs", jobs: data});
+};
+
+exports.getAnnonce = function (req, res) {
+  var annonce = {};
+  var data = JSON.parse(jsonfile.readFileSync(file));
+  for (var i = 0; i < data.length; i++) {
+    if (data[i].id == req.params.id) {
+      annonce = data[i];
+      break;
+    }
+  }
+  console.log(annonce);
+
+  return res.render('index', {title: "Annonce", template: "annonce.ejs", job: annonce});
 };

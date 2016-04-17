@@ -1,31 +1,16 @@
+<link rel="stylesheet" type="text/css" href="../stylesheets/style.css">
 <a href="/"><h3 class="back">Retour aux annonces</h3></a>
 <div class="annonce-content">
 	<div class="annonce-head">
 		<img class="annonce-img" src="https://remixjobs-cache.s3-eu-west-1.amazonaws.com/106x106_thumbnail/1460721844-561dcffd8f33179a3de9593a59fc51c2.png" width="106" heigh="106"/>
 		<div class="annonce-title">
-			<p class="poste">Technicien de Surface</p>
-			<p class="coord"><span class="societe">Entreprise</span>, CDI, Paris</p>
+			<p class="poste"><%= job.titre %></p>
+			<p class="coord"><span class="societe"><%= job.societe %></span>, <%= job.type_poste %>, Paris</p>
 			<p class="skills"><span class="skill">Compétence 1</span><span class="skill">Compétence 2</span><span class="skill">Compétence 3</span></p>
 		</div>
-
 		<div style="clear: both;"></div>
-
 		<div class="annonce-desc">
-			<p></p><p><strong>L’entreprise :</strong></p>
-			<p><strong>leDonenligne.fr</strong> est une plateforme de référencement d'associations et de collecte de dons en ligne.<br>Notre application a pour but d'aider les associations d'intérêt général et reconnues d'utilité publique à se financer auprès des particuliers et des entreprises. En résumé, nous appliquons le modèle du crowdfunding aux associations d'intérêt général et reconnues d'utilité publique françaises.</p>
-			<p><strong>Qualités requises :</strong></p>
-			<p>Vous devrez être autonome, dynamique, entreprenant(e), polyvalent(e), rigoureux(se), réactif,(ve) organisé(e), force de propositions et aimerez relever les challenges.</p>
-			<p><strong>Description du poste :</strong></p>
-			<p>Dans un environnement de travail jeune et dynamique, vous serez un(e) membre à part entière de l’équipe et prendrez part aux décisions importantes de l’entreprise.&nbsp; Vous contribuerez à l’amélioration du front-end, au développement du back-office et assurerez le développement de nouvelles fonctionnalités.</p>
-			<p><strong>Nos technologies :</strong></p>
-			<p>Ruby on Rails (90%) -&nbsp;AngularJS (10% et plus à venir)</p>
-			<p><strong>Quelques détails:</strong></p>
-			<ul><li>Lieu : Paris, Montmartre</li>
-				<li>Ambiance : Startup</li>
-				<li>Début : Dès que possible</li>
-				<li>Rémunération : Selon profil et expérience</li>
-				<li>Café : Oui</li>
-			</ul><p><em>On vous attend !!!</em></p><p></p>
+			<%= job.description %>
 		</div>
 	</div>
 </div>

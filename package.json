@@ -9,6 +9,7 @@
     "node": "0.10.x"
   },
   "dependencies": {
+    "aws-sdk": "^2.3.3",
     "ejs": "^2.4.1",
     "express": "3.1.0",
     "jade": "0.28.1",
