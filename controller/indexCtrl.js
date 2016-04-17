@@ -1,20 +1,33 @@
-var mysql = require("mysql");
+const CONF = require("./super_secure_conf.json"),
+      AWS = require("aws-sdk");
+var lambda = {};
 
-// First you need to create a connection to the db
-var con = mysql.createConnection({
-  host: "db.csokjgo7a9x2.us-west-2.rds.amazonaws.com",
-  user: "admin",
-  password: "a123456789",
-  database: "dbdb"
-});
-
-con.connect(function(err){
-  if(err){
-    console.log('Error connecting to Db');
+function handleResponseFromLambda(err, response) {
+  if (err) {
+    console.log("problem");
+    console.dir(err);
     return;
   }
-  console.log('Connection established');
-});
+  console.dir(response.Payload);
+}
+
+function runAFunctionOnLambda(fn_str) {
+  var settings = {
+    FunctionName: fn_str
+  };
+  lambda.invoke(settings, handleResponseFromLambda);
+}
+
+function init() {
+  AWS.config = new AWS.Config({
+    accessKeyId: CONF.AWS_ACCESS_KEY_ID,
+    secretAccessKey: CONF.AWS_SECRET_ACCESS_KEY,
+    region: "us-west-2"
+  });
+  lambda = new AWS.Lambda();
+  runAFunctionOnLambda("mysqlGetElementsTest");
+}
+init();
 
 exports.getIndex = function (req, res) {
     // clean previous session result
