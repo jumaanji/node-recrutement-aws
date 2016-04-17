@@ -1,11 +1,15 @@
 <p id="demo"></p>
 
-<div class="annonce" id="resultat">
+<div class="annonce">
 	<p class="type-poste">CDI</p>
 	<a href="/annonce" class="poste">Technicien de Surface</a>
 	<p class="coord"><span class="societe">Entreprise</span>, Paris</p>
 	<p class="skills"><span class="skill">Compétence 1</span><span class="skill">Compétence 2</span><span class="skill">Compétence 3</span></p>
+	<p>Dans un environnement de travail jeune et dynamique, vous serez un(e) membre à part entière de l'équipe et prendrez part aux décisions importantes de l?entreprise.  Vous contribuerez à l'amélioration du front-end, au développement du back-office et assurerez le développement de nouvelles fonctionnalités.</p>
 </div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 var text = [
    {
@@ -13,7 +17,7 @@ var text = [
       "titre":"Technicien de Surface",
       "societe":"Groupe DCNS",
       "type_poste":"CDI",
-      "description":"Dans un environnement de travail jeune et dynamique, vous serez un(e) membre à part entière de l?équipe et prendrez part aux décisions importantes de l?entreprise.  Vous contribuerez à l?amélioration du front-end, au développement du back-office et assurerez le développement de nouvelles fonctionnalités."
+      "description":"Dans un environnement de travail jeune et dynamique, vous serez un(e) membre à part entière de l'équipe et prendrez part aux décisions importantes de l'entreprise.  Vous contribuerez à l'amélioration du front-end, au développement du back-office et assurerez le développement de nouvelles fonctionnalités."
    },
    {
       "id":2,
@@ -80,12 +84,37 @@ var text = [
    }
 ]
 
-for (var key in text) {
-		document.getElementById("demo").innerHTML =
-		text[1].titre;
-		// var value = text[key];
+$(document).ready(function () {
+	// function appendText(){
+		for (var key in text) {
+			var elem0 = $("<div class='annonce'>");
+			var elem1 = $("<a class='type-poste'></a>").text(text[key].type_poste);
+			var elem3 = $("<p class='poste'></p>").text(text[key].titre);
+			var elem2 = $("<p class='coord societe'></p>").text(text[key].societe);
+			var elem4 = $("<p></p>").text(text[key].description);
+			// var elem5 =
+			 $(".body-content").append(elem0);
+			 elem0.append(elem1, elem2, elem3, elem4);
+			//  $(".annonce").append(elem2, elem3, elem4);
+						console.log(text[1].titre);
+		}
+	// }
+});
 
-		console.log(text[1].titre);
-}
+
+// <div class="annonce">
+// 	<p class="type-poste">CDI</p>
+// 	<a href="/annonce" class="poste">Technicien de Surface</a>
+// 	<p class="coord"><span class="societe">Entreprise</span>, Paris</p>
+// 	<p class="skills"><span class="skill">Compétence 1</span><span class="skill">Compétence 2</span><span class="skill">Compétence 3</span></p>
+// 	<p>Dans un environnement de travail jeune et dynamique, vous serez un(e) membre à part entière de l'équipe et prendrez part aux décisions importantes de l?entreprise.  Vous contribuerez à l'amélioration du front-end, au développement du back-office et assurerez le développement de nouvelles fonctionnalités.</p>
+// </div>
+
+
+// document.getElementById("demo").innerHTML =
+// text[1].titre;
+// var value = text[key];
+// $("<h1></h1>").append(text[1].titre);
+
 
 </script>
